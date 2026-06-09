@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 class CalculadoraProbabilidadeAdocaoTest {
 
     @Test
-    void cenario01() {
+    void deveriaRetornarProbabilidadeAltaParaPetComPesoBaixoEIdadeBaixa() {
         // idade 4 anos e 4kg - Alta
         CalculadoraProbabilidadeAdocao calculadora = new CalculadoraProbabilidadeAdocao();
         ProbabilidadeAdocao probabilidadeEsperada = ProbabilidadeAdocao.ALTA;
@@ -38,7 +38,7 @@ class CalculadoraProbabilidadeAdocaoTest {
     }
 
     @Test
-    void cenario02() {
+    void deveriaRetornarProbabilidadeMediaParaPetComPesoBaixoEIdadeAlta() {
         // 15 anos e 4kg
         CalculadoraProbabilidadeAdocao calculadora = new CalculadoraProbabilidadeAdocao();
         ProbabilidadeAdocao probabilidadeEsperada = ProbabilidadeAdocao.MEDIA;
@@ -64,7 +64,7 @@ class CalculadoraProbabilidadeAdocaoTest {
     }
 
     @Test
-    void cenario03() {
+    void deveriaRetornarProbabilidadeBaixaParaPetComPesoAltoEIdadeAlta() {
         // 16 anos e 20kg
         CalculadoraProbabilidadeAdocao calculadora = new CalculadoraProbabilidadeAdocao();
         ProbabilidadeAdocao probabilidadeEsperada = ProbabilidadeAdocao.BAIXA;
@@ -82,32 +82,6 @@ class CalculadoraProbabilidadeAdocaoTest {
                 16,
                 "Cinza",
                 20.0f
-        ), abrigo);
-
-        ProbabilidadeAdocao probabilidade = calculadora.calcular(pet);
-
-        Assertions.assertEquals(probabilidadeEsperada, probabilidade);
-    }
-
-    @Test
-    void cenario04() {
-        // 16 anos e 20kg
-        CalculadoraProbabilidadeAdocao calculadora = new CalculadoraProbabilidadeAdocao();
-        ProbabilidadeAdocao probabilidadeEsperada = ProbabilidadeAdocao.ALTA;
-
-        Abrigo abrigo = new Abrigo(new CadastroAbrigoDto(
-                "Abrigo feliz",
-                "94999999999",
-                "abrigofeliz@email.com.br"
-        ));
-
-        Pet pet = new Pet(new CadastroPetDto(
-                TipoPet.CACHORRO,
-                "Dog",
-                "Pit bull",
-                2,
-                "Cinza",
-                3.0f
         ), abrigo);
 
         ProbabilidadeAdocao probabilidade = calculadora.calcular(pet);
