@@ -7,12 +7,14 @@ import br.com.alura.adopet.api.model.Pet;
 import br.com.alura.adopet.api.model.ProbabilidadeAdocao;
 import br.com.alura.adopet.api.model.TipoPet;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class CalculadoraProbabilidadeAdocaoTest {
 
     @Test
-    void deveriaRetornarProbabilidadeAltaParaPetComPesoBaixoEIdadeBaixa() {
+    @DisplayName("Probabilidade alta para gatos jovens com peso baixo")
+    void probabilidadeAltaCenario1() {
         // idade 4 anos e 4kg - Alta
         CalculadoraProbabilidadeAdocao calculadora = new CalculadoraProbabilidadeAdocao();
         ProbabilidadeAdocao probabilidadeEsperada = ProbabilidadeAdocao.ALTA;
@@ -38,7 +40,8 @@ class CalculadoraProbabilidadeAdocaoTest {
     }
 
     @Test
-    void deveriaRetornarProbabilidadeMediaParaPetComPesoBaixoEIdadeAlta() {
+    @DisplayName("Probabilidade média para gatos idosos com peso baixo")
+    void probabilidadeMediaCenario1() {
         // 15 anos e 4kg
         CalculadoraProbabilidadeAdocao calculadora = new CalculadoraProbabilidadeAdocao();
         ProbabilidadeAdocao probabilidadeEsperada = ProbabilidadeAdocao.MEDIA;
@@ -64,7 +67,8 @@ class CalculadoraProbabilidadeAdocaoTest {
     }
 
     @Test
-    void deveriaRetornarProbabilidadeBaixaParaPetComPesoAltoEIdadeAlta() {
+    @DisplayName("Probabilidade baixa para cachorros idosos com peso baixo")
+    void probabilidadeBaixaCenario1() {
         // 16 anos e 20kg
         CalculadoraProbabilidadeAdocao calculadora = new CalculadoraProbabilidadeAdocao();
         ProbabilidadeAdocao probabilidadeEsperada = ProbabilidadeAdocao.BAIXA;
