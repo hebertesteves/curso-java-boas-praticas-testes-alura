@@ -16,6 +16,8 @@ class CalculadoraProbabilidadeAdocaoTest {
     @DisplayName("Probabilidade alta para gatos jovens com peso baixo")
     void probabilidadeAltaCenario1() {
         // idade 4 anos e 4kg - Alta
+
+        // Arrange
         CalculadoraProbabilidadeAdocao calculadora = new CalculadoraProbabilidadeAdocao();
         ProbabilidadeAdocao probabilidadeEsperada = ProbabilidadeAdocao.ALTA;
 
@@ -34,8 +36,10 @@ class CalculadoraProbabilidadeAdocaoTest {
                 4.0f
         ), abrigo);
 
+        // Act
         ProbabilidadeAdocao probabilidade = calculadora.calcular(pet);
 
+        // Assert
         Assertions.assertEquals(probabilidadeEsperada, probabilidade);
     }
 
